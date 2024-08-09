@@ -1,0 +1,6 @@
+venv
+note.md
+build
+dist
+app/camera_list.txt
+app/__pycache__

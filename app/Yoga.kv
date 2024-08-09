@@ -1,0 +1,1823 @@
+#:kivy 2.3.0
+
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+#: import DropDown kivy.uix.dropdown.DropDown
+#: import Carousel kivy.uix.carousel.Carousel
+#:import MDRaisedButton kivymd.uix.button.MDRaisedButton
+#:import MDCheckbox kivymd.uix.selectioncontrol.MDCheckbox
+#:import MDLabel kivymd.uix.label.MDLabel
+#:import MDList kivymd.uix.list.MDList
+#:import MDSpinner kivymd.uix.spinner.MDSpinner
+#:import MDSlider kivymd.uix.slider.slider.MDSlider
+#:import Window kivy.core.window.Window
+#:import Clock kivy.clock.Clock
+
+
+#1680 x 1050
+
+
+<MainMenu>:
+    
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "materials\kivy_wallpaper.jpg"
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: dp(10)
+        size_hint: (1,1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  
+        
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.9, 0.1)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+            
+            MDLabel:
+                text: "Yoga"
+                theme_text_color: "Custom"
+                text_color: "white"
+                font_style: "H4"
+                font_name: "font/zh-cn.ttf"
+                halign: 'center'
+                size_hint: (1, 0.1)
+                pos_hint: {'center_x': 0.5, 'center_y': .90}  
+        
+
+            MDLabel:
+                text: "Main Menu"
+                theme_text_color: "Custom"
+                text_color: "white"
+                font_style: "H6"
+                font_name: "font/zh-cn.ttf"
+                halign: 'center'
+                size_hint: (1, 0.1)
+                pos_hint: {'center_x': 0.5, 'center_y': 0.95} 
+        
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: dp(10)
+            size_hint: (0.9, 0.9)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            
+        
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                size_hint: (0.5, 0.5)
+                pos_hint: {'center_x': 1, 'center_y': 0.5}
+                
+
+                MDRaisedButton:
+                    text: "Go to Session"
+                    font_style: "H6"
+                    font_name: "font/zh-cn.ttf"
+                    md_bg_color: app.get_hex_color("#FFBD00A6")
+                    size_hint: (0.8, 1.2)
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+           
+                    on_press: 
+                        root.next_menu()
+
+                MDRaisedButton:
+                    style: "filled"
+                    text: "Pose Library"
+                    font_style: "H6"
+                    font_name: "font/zh-cn.ttf"
+                    md_bg_color: app.get_hex_color("#FFBD00A6")
+                    size_hint: (0.8, 1.2)
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            
+                    on_press: 
+                        root.manager.transition = FadeTransition()
+                        root.manager.current = 'pose-library'
+            
+                MDRaisedButton:
+                    style: "filled"
+                    text: "Settings"
+                    font_style: "H6"
+                    font_name: "font/zh-cn.ttf"
+                    md_bg_color: app.get_hex_color("#FFBD00A6")
+                    size_hint: (0.8, 1.2)
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+
+                    on_press: 
+                        root.manager.transition = FadeTransition()
+                        root.manager.current = 'settings'
+
+                MDRaisedButton:
+                    style: "filled"
+                    text: "About"
+                    font_style: "H6"
+                    font_name: "font/zh-cn.ttf"
+                    md_bg_color: app.get_hex_color("#FFBD00A6")
+                    size_hint: (0.8, 1.2)
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+
+                    on_press: 
+                        root.manager.transition = FadeTransition()
+                        root.manager.current = 'about'
+
+                MDRaisedButton:
+                    style: "filled"
+                    text: "Quit"
+                    font_style: "H6"
+                    font_name: "font/zh-cn.ttf"
+                    md_bg_color: app.get_hex_color("#FFBD00A6")
+                    size_hint: (0.8, 1.2)
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+
+                    on_press: 
+                        root.quit_app()
+
+
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                size_hint: (0.5, 0.9)
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                
+
+        
+                CustomImageCarousel2:
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
+        
+        
+
+
+
+<CustomImageCarousel2>:
+
+   
+
+    Carousel:
+        id:image_carousel2
+        loop: True  # Set to False if you don't want the carousel to loop
+        pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+        
+
+         
+       
+        Image:
+            source: "materials/instructions/Carimg1.png"
+            allow_stretch: True
+
+        Image:
+            source: "materials/instructions/Carimg2.png"
+            allow_stretch: True
+
+        Image:
+            source: "materials/instructions/Carimg3.png"
+            allow_stretch: True
+
+        
+        Image:
+            source: "materials/instructions/Carimg4.png"
+            allow_stretch: True
+
+        Image:
+            source: "materials/instructions/Carimg5.png"
+            allow_stretch: True
+
+        Image:
+            source: "materials/instructions/Carimg6.png"
+            allow_stretch: True
+
+        Image:
+            source: "materials/instructions/Carimg7.png"
+            allow_stretch: True
+
+
+        
+
+    Button:
+        text: ''
+        size_hint: (None, None)
+        size: (image_carousel2.width / 2, image_carousel2.height)
+        pos: image_carousel2.pos
+        background_color: 0, 0, 0, 0
+        on_press: image_carousel2.load_previous()
+
+    Button:
+        text: ''
+        size_hint: (None, None)
+        size: (image_carousel2.width / 2, image_carousel2.height)
+        pos: (image_carousel2.x + image_carousel2.width / 2, image_carousel2.y)
+        background_color: 0, 0, 0, 0
+        on_press: image_carousel2.load_next()
+
+<InstructionAdv>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "materials\kivy_wallpaper.jpg"
+    
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 20
+        size_hint_max_y: 300
+        
+        pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+
+        CustomImageCarousel4:
+            id: image_carousel4
+            size_hint: (0.5, 0.5)  
+            size: (400, 300)
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: 10
+        size_hint_max_y: 300
+        size_hint_max_x: 1200    
+        pos_hint: {'center_x': 0.5, 'center_y': 0.15}
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_max_y: 300
+            size_hint_max_x: 1200   
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+
+        MDRaisedButton:
+            id: start_button
+            style: "filled"
+            text: "Proceed"
+            font_style: "H6"
+            font_name: "font/zh-cn.ttf"
+            md_bg_color: app.get_hex_color("#FFBD00A6")
+            size_hint: (0.5, 0.2)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+
+            on_press: 
+                root.manager.transition = FadeTransition()
+                root.manager.current = 'session'
+
+<CustomImageCarousel4>:
+    Carousel:
+        id: image_carousel4
+        loop: True  # Set to False if you don't want the carousel to loop
+
+        Image:
+            source: "materials/adv1.png"
+            allow_stretch: True
+
+        Image:
+            source: "materials/adv2.png"
+            allow_stretch: True
+
+        Image:
+            source: "materials/adv3.png"
+            allow_stretch: True
+        
+        Image:
+            source: "materials/adv4.png"
+            allow_stretch: True
+
+    Button:
+        text: ''
+        size_hint: (None, None)
+        size: (image_carousel4.width / 2, image_carousel4.height)
+        pos: image_carousel4.pos
+        background_color: 0, 0, 0, 0
+        on_press: image_carousel4.load_previous()
+
+    Button:
+        text: ''
+        size_hint: (None, None)
+        size: (image_carousel4.width / 2, image_carousel4.height)
+        pos: (image_carousel4.x + image_carousel4.width / 2, image_carousel4.y)
+        background_color: 0, 0, 0, 0
+        on_press: image_carousel4.load_next()
+
+<SessionLibrary>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "materials\kivy_wallpaper.jpg"
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: dp(10)
+        padding: 15
+        size_hint: (1, 1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
+            
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: dp(10)
+            padding: 20
+            size_hint_y: 0.13
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                size_hint_y: 1
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                MDLabel:
+                    text: "Yoga"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    font_style: "H4"
+                    font_name: "app_font"
+                    halign: 'center'
+                    size_hint: (1, 0.1)
+                    pos_hint: {'center_x': 0.5, 'center_y': .96}  
+        
+                MDLabel:
+                    text: "Select a Session (Difficulty & Time)"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    font_style: "H6"
+                    font_name: "app_font"
+                    halign: 'center'
+                    size_hint: (1, 0.3)
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.92} 
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: dp(10)
+            padding: 20
+            size_hint_y: 0.8
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                padding: 20
+                size_hint_y: 0.9
+                size_hint_x: 0.4
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.6, 0.2, 0.6  # Set the background color (RGBA values)
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+                ScrollView:
+                    size_hint_y: 1
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+
+                    MDList:
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Easy Class[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                        
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]    Easy - 15 Minutes[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                
+                            on_press: 
+                                poseimage.source = 'materials/Thumbnail/bg15tn.jpg'
+                                print("After calling add_data_row")
+                                app.root.get_screen('history').add_data_row('Beginner', 15)
+                                print("After calling add_data_row")
+                                root.set_difficulty('beginner15')
+                                print(self.height)
+                            
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]    Easy - 30 Minutes[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                
+                            on_press: 
+                                poseimage.source = 'materials/Thumbnail/bg30tn.jpg'
+                                print("After calling add_data_row")
+                                app.root.get_screen('history').add_data_row('Beginner', 30)
+                                print("After calling add_data_row")
+                                root.set_difficulty('beginner30')
+
+                        
+
+                        OneLineListItem:
+                            text: "[font=app_font]Normal Class[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]    Normal - 15 Minutes[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                
+                            on_press: 
+                                poseimage.source = 'materials/Thumbnail/n15tn.jpg'
+                                print("After calling add_data_row")
+                                app.root.get_screen('history').add_data_row('Normal', 15)
+                                print("After calling add_data_row")
+                                root.set_difficulty('normal15')
+                            
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]    Normal - 30 Minutes[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                
+                            on_press: 
+                                poseimage.source = 'materials/Thumbnail/n30tn.jpg'
+                                print("After calling add_data_row")
+                                app.root.get_screen('history').add_data_row('Normal', 30)
+                                print("After calling add_data_row")
+                                root.set_difficulty('normal30')
+
+                        
+
+                        
+
+                        
+                                
+                    
+ 
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                padding: 20
+                size_hint_y: 0.9
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.6, 0.2, 0.6  # Set the background color (RGBA values)
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+                Image:
+                    id: poseimage
+                    size_hint_x: 1
+                    source: "materials/Thumbnail/bg15tn.jpg"
+                    allow_stretch: True
+
+                MDRaisedButton:
+                    style: "filled"
+                    text: "Begin Session"
+                    font_style: "H6"
+                    font_name: "app_font"
+                    md_bg_color: app.get_hex_color("#ffae0080")
+                    size_hint: (None, None)
+                    pos_hint: {'center_x': 0.5, 'center_y': 1}
+
+                    on_press:
+                        root.manager.transition = FadeTransition()
+                        root.manager.current = 'instructions-adv'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: dp(10)
+            padding: 20
+            size_hint_y: 0.07
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+            MDRaisedButton:
+                style: "filled"
+                text: "Go back"
+                font_style: "H6"
+                font_name: "app_font"
+                md_bg_color: app.get_hex_color("#63470080")
+                size_hint: (None, None)
+                pos_hint: {'center_x': 0.5, 'center_y': 1}
+                
+                on_press: 
+                    root.manager.transition = FadeTransition()
+                    root.manager.current = 'main-menu'
+
+<Session>
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "materials\kivy_wallpaper.jpg"
+    
+   
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        size_hint: (1, 1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        
+        
+        
+        
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.9
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+            
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: 0.9
+                size_hint_x: 0.3
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                canvas.before:
+                    Color:
+                        rgba: 0.43, 0.35, 0, 0.4  # Set the background color (RGBA values)
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                
+
+                Image:
+                    source: "materials/Yogaposes/Posewindow.png"
+                    allow_stretch: True
+                    id: pose_frame
+                    size_hint_x: 1
+                    size_hint_y: 0.6
+                    pos_hint:{'center_x': 0.5, 'center_y': 0.95}
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: 0.2
+                    pos_hint: {'center_x': 0.52, 'center_y': 0.4}
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 0  # Set the background color (RGBA values)
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+                    Label
+                        text:"Predicted Pose: "
+                        font_style: "H6"
+                        halign: 'center'
+                        font_name: "font/zh-cn.ttf"
+                        pos_hint:{'x': 0.5, 'top': 0.4}
+                        size_hint: 0.1, 0.1
+                        font_size: '25sp'
+                
+                    Label
+                        id: prediction_label
+                        font_style: "H6"
+                        halign: 'center'
+                        font_name: "font/zh-cn.ttf"
+                        pos_hint:{'x': 0.5, 'top': 0.4}
+                        size_hint: 0.1, 0.1
+                        font_size: '50sp'
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: 0.2
+                    pos_hint: {'center_x': 0.53, 'center_y': 0.4}
+                    
+
+                    Label
+                        text: "Pose Probability: "
+                        font_style: "H6"
+                        halign: 'center'
+                        font_name: "font/zh-cn.ttf"
+                        pos_hint:{'x': 0.8, 'top': 0.4}
+                        size_hint: 0.1, 0.1
+                        font_size: '25sp'
+
+                    Label
+                        id: probability_label
+                        font_style: "H6"
+                        halign: 'center'
+                        font_name: "font/zh-cn.ttf"
+                        pos_hint:{'x': 0.8, 'top': 0.4}
+                        size_hint: 0.1, 0.1
+                        font_size: '25sp'
+            
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                padding: 20
+                size_hint_y: 0.9
+                size_hint_x: 0.6
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                canvas.before:
+                    Color:
+                        rgba: 0.43, 0.35, 0, 0.4  # Set the background color (RGBA values)
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                
+
+                
+                
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: 0.1
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+                    
+                    Label:
+                        text: "Timer"
+                        halign: 'center'
+                        font_name: "font/zh-cn.ttf"
+                        pos_hint: {'x': 0.5,'top': 0.5}
+                        size_hint: 0.1, 0.1
+                        font_size: '40sp'
+                
+                    Label:
+                        id: timer_label
+                        halign: 'center'
+                        font_name: "font/zh-cn.ttf"
+                        pos_hint: {'x': 0.5,'top': 0.5}
+                        size_hint: 0.1, 0.1
+                        font_size: '60sp'
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: 0.7
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+                    
+               
+
+                    Image:
+                        source: "materials/Yogaposes/Camerascreen.png"
+                        allow_stretch: True
+                        id: camera_frame
+                        size_hint: 1, 1
+                        pos_hint:{'center_x': 0.5, 'center_y': 0.5}
+                        
+                    Label
+                        text:"Calibration Phase"
+                        id: calibration_state
+                        halign: 'center'
+                        font_style: "H6"
+                        font_name: "font/zh-cn.ttf"
+                        pos_hint:{'x': 0.46, 'top': 0.5}
+                        size_hint: 0.1, 0.1
+                        font_size: '25sp'
+
+                    
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: 0.2
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+
+                    
+                    
+
+                    Label
+                        text:"Current Pose: "
+                        halign: 'center'
+                        font_style: "H6"
+                        font_name: "font/zh-cn.ttf"
+                        pos_hint:{'x': 0.4, 'top': 0.5}
+                        size_hint: 0.1, 0.1
+                        font_size: '30sp'
+
+                    Label
+                        id: pose_label
+                        halign: 'center'
+                        font_style: "H6"
+                        font_name: "font/zh-cn.ttf"
+                        pos_hint:{'x': 0.4, 'top': 0.5}
+                        size_hint: 0.1, 0.1
+                        font_size: '50sp'
+
+                   
+                
+                    
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: dp(10)
+            size_hint_y: 0.1
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+            
+            MDRaisedButton:
+                style: "filled"
+                id: session_start_button
+                text: "Start"
+                size_hint: (1, 0.2)
+                font_style: "H6"
+                font_name: "font/zh-cn.ttf"
+                md_bg_color: app.get_hex_color("#FFBD00A6")
+                size_hint: (0.1, 0.7)
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                on_press: root.activation_trigger()
+            
+            
+               
+            MDRaisedButton:
+                style: "filled"
+                text: "Go back"
+                font_style: "H6"
+                font_name: "font/zh-cn.ttf"
+                md_bg_color: app.get_hex_color("#FFBD00A6")
+                size_hint: (0.1, 0.7)
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                on_press: 
+                    root.manager.transition = FadeTransition()
+                    root.manager.current = 'session-library'
+
+
+<CameraSelection>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "materials/kivy_wallpaper.jpg"
+
+    
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+        size_hint_max_y: 200
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
+
+        MDLabel:
+            theme_text_color: "Custom"
+            text_color: "white"
+            halign: 'center'
+            font_style: "H6"
+            font_name: "app_font"
+            size_hint: (1, 0.2)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9} 
+            id: selected_camera
+            text: "Select a camera"
+
+        MDRaisedButton:
+            style: "filled"
+            id: select_camera_button
+            text: "Select Camera"
+            font_style: "H6"
+            font_name: "app_font"
+            md_bg_color: app.get_hex_color("#FFBD00A6")
+            size_hint: (0.2, 0.1)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+
+            on_release: root.menu.open()
+           
+        MDRaisedButton:
+            style: "filled"
+            text: "Apply"
+            font_style: "H6"
+            font_name: "font/zh-cn.ttf"
+            md_bg_color: app.get_hex_color("#FFBD00A6")
+            size_hint: (0.2, 0.1)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+
+            on_press:
+                root.apply_selection()
+                root.manager.transition = FadeTransition()
+                root.manager.current = 'settings'
+
+        MDRaisedButton:
+            style: "filled"
+            text: "Go back"
+            font_style: "H6"
+            font_name: "font/zh-cn.ttf"
+            md_bg_color: app.get_hex_color("#FFBD00A6")
+            size_hint: (0.2, 0.1 )
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+
+            on_press:
+                root.manager.current = 'settings'
+
+<PoseLibrary>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "materials\kivy_wallpaper.jpg"
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: dp(10)
+        padding: 15
+        size_hint: (1, 1)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
+            
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: dp(10)
+            padding: 20
+            size_hint_y: 0.13
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                size_hint_y: 1
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+    
+                MDLabel:
+                    text: "Yoga"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    font_style: "H4"
+                    font_name: "app_font"
+                    halign: 'center'
+                    size_hint: (1, 0.1)
+                    pos_hint: {'center_x': 0.5, 'center_y': .95}  
+        
+
+                MDLabel:
+                    text: "Pose Library"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    font_style: "H6"
+                    font_name: "app_font"
+                    halign: 'center'
+                    size_hint: (1, 0.1)
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.92} 
+
+
+        
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: dp(10)
+            padding: 20
+            size_hint_y: 0.8
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
+
+            
+           
+    
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                padding: 20
+                size_hint_y: 0.9
+                size_hint_x: 0.4
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.6, 0.2, 0.6  # Set the background color (RGBA values)
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+                ScrollView:
+                    size_hint_y: 1
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+            
+                    MDList:
+        
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Mountain Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\MountainPose.jpg'
+                                pose.text = 'Mountain Pose / Tadasana'
+                                style.text = 'Style: Hatha Yoga'
+                                info.text = ' \n Mountain Pose is the foundational standing pose in yoga. \n It focuses on grounding, proper alignment, and centering the mind'      
+                                instruct.text ='\n Instruction: \n Stand tall with your feet together or hip-width apart. Engage your thigh muscles, lift your chest, and relax your shoulders. Extend your arms alongside your body or overhead, palms facing inward.'
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Downward Facing Dog Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\DownwardFacingDogPose.jpg'
+                                pose.text = 'Downward Facing Dog / Adho Mukha Svanasana'
+                                style.text = 'Style: Ashtanga and Vinyasa Yoga'
+                                info.text = "\n Downward Facing Dog is a common yoga pose that stretches and strengthens the entire body. \n It's often used in sequences to transition between poses and to build heat in the body."
+                                instruct.text = '\n Instruction: \n Start on your hands and knees, then lift your hips towards the ceiling, straightening your arms and legs. \n Press your palms and heels into the ground, and lengthen your spine while keeping your head between your arms.' 
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Child's Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\ChildsPose.jpg'
+                                pose.text = "Child's Pose / Balasana"
+                                style.text = 'Style: Restorative and Hatha Yoga'
+                                info.text = "\n Child's Pose is a resting pose that stretches the back, hips, and thighs while promoting relaxation and introspection. \n It's often used as a counterpose to more strenuous poses."
+                                instruct.text = '\n Instruction: \n Kneel on the floor, sit back on your heels, then lower your torso forward, resting it on or between your thighs. \n Extend your arms forward or alongside your body, and relax your forehead on the ground.' 
+                        
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Warrior Pose I[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\WarriorIPose.jpg'
+                                pose.text ='Warrior 1 / Virabhadrasana I'
+                                style.text ='Style: Vinyasa and Power Yoga'
+                                info.text = "\n Warrior 1 is a standing pose that builds strength and stability in the legs and core while fostering a sense \n of empowerment and focus."
+                                instruct.text = "\n Instruction: \n From standing, step one foot back and angle it slightly. Bend your front knee to a 90-degree angle, \n square your hips forward, raise your arms overhead, and gaze up between your hands." 
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Warrior Pose II[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\WarriorIIPose.jpg'
+                                pose.text = 'Warrior 2 / Virabhadrasana II'
+                                style.text = 'Style: Hatha and Vinyasa Yoga'
+                                info.text = "\n Warrior 2 strengthens the legs, opens the hips and chest, and improves stamina and concentration.\n It's a pose of strength and expansiveness."
+                                instruct.text = "\n Instruction: \n From Warrior 1, open your hips and arms to the side, extend your arms parallel to the floor, \n bend your front knee, align it with your ankle, and gaze over your front hand."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Warrior Pose III[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\WarriorIIIPose.jpg'
+                                pose.text = 'Warrior 3 / Virabhadrasana III'
+                                style.text = 'Style: Vinyasa and Power Yoga '
+                                info.text = "\n Warrior 3 is a balancing pose that strengthens the legs, core, and stabilizing muscles while \n improving focus and concentration."
+                                instruct.text = "\n Instruction: \n From Mountain Pose, shift your weight onto one leg and hinge forward from the hips, extending the other leg straight back. Keep your hips level and your body in a straight line from head to heel. Arms can be extended forward or alongside your body for balance."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Tree Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\TreePose.jpg'
+                                pose.text = 'Tree Pose / Vrikshasana'
+                                style.text = 'Style: Hatha and Kundalini Yoga   '
+                                info.text = "\n Tree Pose is a balancing pose that promotes concentration, stability, and inner strength. \n It also stretches the thighs, groin, and shoulders."
+                                instruct.text = "\n Instruction: \n Stand on one foot, place the sole of the other foot on the inner thigh or calf of the standing leg, find your balance, \n bring your palms together at your heart center or raise them overhead, and focus your gaze on a fixed point."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Dolphin Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\DolphinPose.jpg'
+                                pose.text = 'Dolphin Pose / Ardha Pincha Mayurasana'
+                                style.text = 'Style: Vinyasa and Power Yoga'
+                                info.text = "\n Dolphin Pose is a variation of Downward Facing Dog that strengthens the arms, shoulders, \n and core while stretching the hamstrings and calves. It also helps to calm the mind and relieve stress."
+                                instruct.text = "\n Instruction: \n Start on your hands and knees, lower onto your forearms, interlace your fingers, tuck your toes, lift your hips towards the ceiling, and straighten your legs as much as possible, forming a triangle shape with your body."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Cobra Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\CobraPose.jpg'
+                                pose.text = 'Cobra Pose / Bhujangasana'
+                                style.text = 'Style: Hatha and Ashtanga Yoga '
+                                info.text = "\n Cobra Pose is a gentle backbend that strengthens the spine, opens the chest and shoulders, and stimulates the abdominal organs. \n It's often used to counteract the effects of sitting and slouching."
+                                instruct.text = "\n Instruction: \n Lie on your stomach with your palms under your shoulders, press into your hands to lift your chest off the ground, keep your elbows close to your body, and lengthen through the crown of your head."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Happy Baby Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\HappyBabyPose.jpg'
+                                pose.text = 'Happy Baby Pose / Ananda Balasana'
+                                style.text = 'Style: Yin and Restorative Yoga '
+                                info.text = "\n Happy Baby Pose gently stretches the hips, groin, and lower back while promoting relaxation and a sense of playfulness.\n It's often practiced to release tension and stress from the body."
+                                instruct.text = "\n Instruction: \n Lie on your back, bend your knees into your chest, grab the outer edges of your feet with your hands, open your knees wider than your torso, and gently pull your feet down towards the ground."
+                            
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Sphinx Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\SphinxPose.jpg'
+                                pose.text = 'Sphinx Pose / Salamba Bhujangasana'
+                                style.text = 'Style: Hatha and Yin Yoga'
+                                info.text = "\n Sphinx Pose is a gentle backbend that stretches the spine and chest while promoting relaxation and introspection.\n It's often used as a preparation for deeper backbends."
+                                instruct.text = "\n Instruction: \n Lie on your stomach, prop yourself up on your forearms, align your elbows under your shoulders, press your forearms and palms into the ground, and gently lift your chest while keeping your shoulders relaxed. "
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Corpse Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\CorpsePose.jpg'
+                                pose.text = 'Corpse Pose / Savasana'
+                                style.text = 'Style: All styles of Yoga'
+                                info.text = "\n Corpse Pose is a relaxation pose typically practiced at the end of a yoga session. \n It allows the body to integrate the benefits of the practice and promotes deep relaxation and rejuvenation."
+                                instruct.text = "\n Instruction: \n Lie on your back with your legs extended and arms by your sides, palms facing up. Close your eyes, relax your entire body, and allow your breath to become natural. Stay in this pose for several minutes, focusing on releasing tension and letting go."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Chair Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\ChairPose.jpg'
+                                pose.text = 'Chair Pose / Utkatasana'
+                                style.text = 'Style: Hatha and Vinyasa Yoga'
+                                info.text = "\n Chair Pose is a strengthening pose that targets the thighs, glutes, and core muscles. \n It builds heat in the body and improves balance and concentration."
+                                instruct.text = "\n Instruction: \n Stand tall with your feet together. Inhale and raise your arms overhead, palms facing each other. Exhale and bend your knees, as if sitting back into an imaginary chair. Keep your weight in your heels and your chest lifted."
+
+                        
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Garland Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\GarlandPose.jpg'
+                                pose.text = 'Garland Pose / Malasana'
+                                style.text = 'Style: Hatha and Kundalini Yoga'
+                                info.text = "\n Garland Pose is a deep squatting pose that stretches the hips, groin, and lower back. \n It stimulates the digestive organs and promotes grounding and inner focus."
+                                instruct.text = "\n Instruction: \n Start in a standing position with your feet wider than hip-width apart. Bend your knees and lower your hips towards the ground, coming into a squat. Bring your palms together at your heart center, pressing your elbows into your inner thighs to open the hips."
+                        
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Butterfly Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\ButterflyPose.jpg'
+                                pose.text = 'Butterfly Pose / Baddha Konasana'
+                                style.text = 'Style: Yin and Restorative Yoga'
+                                info.text = "\n Butterfly Pose is a seated pose that opens the hips and groin while stretching the inner thighs and lower back. \n It promotes relaxation and stimulates the abdominal organs."
+                                instruct.text = "\n Instruction: \n Sit on the floor with your knees bent and the soles of your feet together, allowing your knees to fall open to the sides. Hold onto your feet or ankles with your hands, sit tall, and gently press your knees towards the ground."
+                        
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Plank Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\PlankPose.jpg'
+                                pose.text = 'Plank Pose / Phalakasana'
+                                style.text = 'Style: Power and Vinyasa Yoga'
+                                info.text = "\n Plank Pose is a foundational yoga pose that strengthens the core, arms, shoulders, and legs. \n It improves overall body strength and stability and is often used as a transition pose in yoga sequences."
+                                instruct.text = "\n Instruction: \n Start in a push-up position with your hands directly under your shoulders and your body in a straight line from head to heels. Engage your core muscles, keep your spine neutral, and hold the position, breathing steadily."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Seated Forward Bend Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\SeatedForwardBendPose.jpg'
+                                pose.text = 'Seated Forward Bend Pose / Paschimottanasana'
+                                style.text = 'Style: Hatha and Yin Yoga'
+                                info.text = "\n Seated Forward Bend Pose is a seated stretching pose that targets the hamstrings, spine, and shoulders.\n It promotes relaxation and introspection and can help relieve stress and anxiety."
+                                instruct.text = "\n Instruction: \n Sit on the floor with your legs extended in front of you. Inhale to lengthen your spine, then exhale to hinge forward from the hips, reaching for your feet or shins. Keep your spine straight and lead with your chest."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Bridge Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\BridgePose.jpg'
+                                pose.text = 'Bridge Pose / Setu Bandhasana'
+                                style.text = 'Style: Hatha and Restorative Yoga'
+                                info.text = "\n  Bridge Pose is a backbend that strengthens the back, glutes, and legs while opening the chest and shoulders.\n It can help alleviate back pain and improve posture."
+                                instruct.text = "\n Instruction: \n Lie on your back with your knees bent and feet hip-width apart. Press into your feet to lift your hips towards the ceiling, keeping your shoulders and feet grounded. Interlace your fingers under your back and roll your shoulders underneath you."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Triangle Pose [/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\TrianglePose.jpg'
+                                pose.text = 'Triangle Pose / Trikonasana'
+                                style.text = 'Style: Hatha and Ashtanga Yoga'
+                                info.text = "\n Triangle Pose is a standing pose that stretches the hamstrings, hips, and spine while opening the chest and shoulders.\n It improves balance, concentration, and overall body awareness."
+                                instruct.text = "\n Instruction: \n Stand with your feet wide apart. Turn your right foot out 90 degrees and your left foot in slightly. Extend your arms parallel to the floor, then reach towards your right foot with your right hand, keeping your torso long and open. Keep your legs straight and gaze up towards your top hand."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Low Lunge Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\LowLungePose.jpg'
+                                pose.text = 'Low Lunge Pose / Anjaneyasana'
+                                style.text = 'Style: Hatha and Vinyasa Yoga'
+                                info.text = "\n Low Lunge stretches the hips, thighs, and groin while building strength and stability in the legs.\n It's often used in yoga sequences to transition between poses."
+                                instruct.text = "\n Instruction: \n From Downward Facing Dog, step one foot forward between your hands. Lower your back knee to the ground and untuck your toes. Sink your hips forward and down, keeping your front knee aligned over your ankle. Keep your chest lifted and shoulders relaxed."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Thread the Needle Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\ThreadTheNeedlePose.jpg'
+                                pose.text = 'Thread the Needle Pose / Urdhva Mukha Pasasana'
+                                style.text = 'Style: Yin and Restorative Yoga'
+                                info.text = "\n Thread the Needle is a gentle shoulder opener that releases tension and increases mobility in the upper back and shoulders. It's often practiced to relieve stress and improve posture."
+                                instruct.text = "\n Instruction: \n Start on your hands and knees in a tabletop position. Reach your right arm underneath your body, threading it between your left hand and knee. Rest your right shoulder and ear on the ground, and extend your left arm forward or wrap it around your back. Hold and breathe deeply, then switch sides."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Puppy Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\PuppyPose.jpg'
+                                pose.text = 'Puppy Pose / Uttana Shishosana'
+                                style.text = 'Style: Hatha and Yin Yoga'
+                                info.text = "\n Puppy Pose is a gentle stretch that opens the chest, shoulders, and upper back while lengthening the spine.\n It's often used as a preparatory pose for deeper backbends."
+                                instruct.text = "\n Instruction: \n Start on your hands and knees in a tabletop position. Walk your hands forward and lower your chest towards the ground, keeping your hips over your knees. Extend your arms forward and relax your forehead on the mat. Press your palms into the ground to deepen the stretch."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Half Pigeon Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\HalfPigeonPose.jpg'
+                                pose.text = 'Half Pigeon Pose / Ardha Kapotasana'
+                                style.text = 'Style: Hatha and Yin Yoga'
+                                info.text = "\n Half Pigeon Pose is a hip-opening stretch that targets the outer hip and thigh muscles.\n It can help alleviate tension and discomfort in the hips and lower back."
+                                instruct.text = "\n Instruction: \n From Downward Facing Dog, bring one knee towards your chest and place it behind your wrist, with your ankle towards the opposite wrist. Extend your other leg straight back, with your knee and top of the foot on the ground. Square your hips and fold forward over your front leg, resting your forehead on your hands or the mat. Repeat on the other side."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Cow Face Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\CowFacePose.jpg'
+                                pose.text = 'Cow Face Pose / Gomukhasana'
+                                style.text = 'Style: Hatha and Ashtanga Yoga'
+                                info.text = "\n Cow Face Pose is a seated stretch that opens the hips, shoulders, and chest.\n It can help improve flexibility and mobility in these areas while promoting relaxation."
+                                instruct.text = "\n Instruction: \n Sit on the floor with your legs extended in front of you. Bend your knees and stack your right knee on top of your left knee, bringing your feet towards your hips. Reach your right arm overhead and bend your elbow, bringing your hand down between your shoulder blades. Reach your left arm behind your back and bend your elbow, bringing your hand up towards your right hand. Hold and breathe deeply, then switch sides."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Boat Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\BoatPose.jpg'
+                                pose.text = 'Boat Pose / Navasana'
+                                style.text = 'Style: Hatha and Ashtanga Yoga'
+                                info.text = "\n Boat Pose is a core-strengthening pose that targets the abdominals, hip flexors, and lower back muscles.\n It improves balance and stability while toning the entire midsection."
+                                instruct.text = "\n Instruction: \n Sit on the floor with your knees bent and feet flat on the ground. Lean back slightly and lift your feet off the ground, bringing your shins parallel to the floor. Extend your arms straight out in front of you, parallel to the floor. Keep your chest lifted and spine straight, and engage your core muscles. Hold for several breaths, then release."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Reclining Hand-to-Big-Toe Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\RecliningHandtoBigToePose.jpg'
+                                pose.text = 'Reclining Hand-to-Big-Toe Pose / Supta Padangusthasana'
+                                style.text = 'Style: Hatha and Yin Yoga'
+                                info.text = "\n Reclining Hand-to-Big-Toe Pose is a hamstring stretch that also opens the hips and improves flexibility in the legs.\n It's often practiced to release tension and tightness in the lower body."
+                                instruct.text = "\n Instruction: \n Lie on your back with your legs extended. Bend your right knee into your chest and loop a yoga strap or towel around the ball of your right foot. Straighten your right leg towards the ceiling, holding onto the strap with both hands. Keep your left leg extended along the mat. Hold for several breaths, then switch sides."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Gate Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\GatePose.jpg'
+                                pose.text = 'Gate Pose / Parighasana'
+                                style.text = 'Style: Hatha and Kundalini Yoga'
+                                info.text = "\n Gate Pose is a lateral stretch that opens the sides of the body, stretches the hips and thighs, and improves spinal mobility.\n It's often practiced to increase energy and vitality."
+                                instruct.text = "\n Instruction: \n Kneel on the floor with your knees hip-width apart. Extend your right leg out to the side, with your foot flat on the ground and toes pointing forward. Inhale and raise your left arm overhead, then exhale and lean to the right, bringing your right hand down towards your right leg. Keep your chest lifted and spine long. Hold for several breaths, then switch sides."
+
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Revolved Chair Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\RevolvedChairPose.jpg'
+                                pose.text = 'Revolved Chair Pose / Parivrtta Utkatasana'
+                                style.text = 'Style: Hatha and Vinyasa Yoga'
+                                info.text = "\n Revolved Chair Pose is a twist that strengthens the legs, core, and back muscles while improving spinal mobility and digestion.\n  It's often practiced to detoxify and energize the body."
+                                instruct.text = "\n Instruction: \n Start in Chair Pose, with your feet together and knees bent, as if sitting back in an imaginary chair. Bring your palms together at your heart center. Inhale to lengthen your spine, then exhale and twist to the right, bringing your left elbow to the outside of your right knee. Keep your hips squared and spine tall. Hold for several breaths, then repeat on the other side."
+                        
+                        OneLineListItem:
+                            text: "[font=font/zh-cn.ttf]Standing Forward Bend Pose[/font]"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: 'center'
+                            on_press: 
+                                poseimage.source = 'materials\Yogaposes\StandingForwardBendPose.jpg'
+                                pose.text = 'Standing Forward Bend / Uttanasana'
+                                style.text = 'Style: Hatha and Vinyasa Yoga'
+                                info.text = "\n Standing Forward Bend is a forward fold that stretches the hamstrings, calves, and spine while calming the mind and relieving stress.\n It's often used as a counterpose to backbends and inversions."
+                                instruct.text = "\n Instruction: \n Stand tall with your feet hip-width apart. Inhale to lengthen your spine, then exhale and hinge forward from the hips, reaching your hands towards the ground or grabbing onto your calves or ankles. Keep your knees slightly bent if necessary to protect your hamstrings. Relax your head and neck, and let your upper body hang heavy. Hold for several breaths, then slowly roll up to standing."
+
+                        
+                        
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                padding: 20
+                size_hint_y: 0.9
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.6, 0.2, 0.8  # Set the background color (RGBA values)
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+                Image:
+                    id: poseimage
+                    size_hint_x: 1
+                    source: "materials/Yogaposes/emptypose.jpg"
+                    allow_stretch: True
+
+                
+                MDLabel:
+                    id: pose
+                    text: "Pose"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    font_style: "H5"
+                    halign: 'center'
+                    font_name: "app_font"
+                    size_hint: (1, None)
+                    height: self.texture_size[1]
+                    multiline: False
+
+                MDLabel:
+                    id: style
+                    text: "Style"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    font_style: "H6"
+                    halign: 'center'
+                    font_name: "app_font"
+                    size_hint: (1, None)
+                    height: self.texture_size[1]
+                    multiline: False
+                
+                MDLabel:
+                    id: info
+                    text: "Info"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    font_style: "H6"
+                    halign: 'center'
+                    font_name: "app_font"
+                    size_hint: (1, None)
+                    height: self.texture_size[1]
+                    multiline: False
+                    font_size: '16sp'
+
+                MDLabel:
+                    id: instruct
+                    text: "Instruction"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    font_style: "H6"
+                    halign: 'center'
+                    font_name: "font/zh-cn.ttf"
+                    size_hint: (1, None)
+                    height: self.texture_size[1]
+                    multiline: False
+                    font_size: '16sp'
+                
+                
+            
+
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: dp(10)
+            padding: 20
+            size_hint_y: 0.07
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            
+
+          
+
+            MDRaisedButton:
+                style: "filled"
+                text: "Go back"
+                font_style: "H6"
+                font_name: "app_font"
+                md_bg_color: app.get_hex_color("#d6ab3e99")
+                size_hint: (None, None)
+                pos_hint: {'center_x': 0.5, 'center_y': 1}
+                
+                on_press: 
+                    root.manager.transition = FadeTransition()
+                    root.manager.current = 'main-menu'
+
+
+              
+<History>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "materials\kivy_wallpaper.jpg"
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: dp(10)
+        padding: 20
+        size_hint_y: 0.7
+        size_hint_x: 0.8
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        canvas.before:
+            Color:
+                rgba: 0.8, 0.6, 0.2, 0.6  # Set the background color (RGBA values)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+    
+                    
+        DataTable:
+            id: data_table
+		    theme_text_color: "Custom"
+		    text_color: "white"
+	        font_style: "H5"
+		    halign: 'center'
+            font_name: "app_font"
+            spacing: 3
+            columns: ['Date', 'Difficulty', 'Time']
+					
+					
+						
+      
+    MDRaisedButton:
+        style: "filled"
+        text: "Go back"
+        font_style: "H6"
+        font_name: "app_font"
+        md_bg_color: app.get_hex_color("#e3325e99")
+        size_hint: (None, None)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+                
+        on_press: 
+            root.manager.transition = FadeTransition()
+            root.manager.current = 'main-menu'
+
+<Setting>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "materials/kivy_wallpaper.jpg"
+
+    
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: dp(10)
+        padding: 20
+        size_hint_y: 0.7
+        size_hint_x: 0.8
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        MDRaisedButton:
+            style: "filled"
+            text: "Play/Pause"
+            font_style: "H6"
+            font_name: "font/zh-cn.ttf"
+            md_bg_color: app.get_hex_color("#FFBD00A6")
+            size_hint: (0.3, 0.1)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            id: play_stop_button
+            on_press: app.play_stop_music()
+        MDSlider:
+            min: 0
+            max: 1
+            step: 0.01
+            value: 1
+            hint: False
+            color: "green"
+            track_color_active: "black"
+            thumb_color_active: app.get_hex_color("#FFBD00A6")
+            thumb_color_inactive: "green"
+            on_value_pos: app.set_volume(self.value)
+
+        MDRaisedButton:
+            style: "filled"
+            text: "Select Camera"
+            font_style: "H6"
+            font_name: "font/zh-cn.ttf"
+            md_bg_color: app.get_hex_color("#FFBD00A6")
+            size_hint: (0.3, 0.1)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+
+            on_press:
+                root.manager.current = 'camera-selection'
+
+        MDRaisedButton:
+            style: "filled"
+            text: "Go back"
+            font_style: "H6"
+            font_name: "font/zh-cn.ttf"
+            md_bg_color: app.get_hex_color("#FFBD00A6")
+            size_hint: (0.3, 0.1)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+
+            on_press: 
+                root.manager.transition = FadeTransition()
+                root.manager.current = 'main-menu'
+        
+
+<About>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "materials\kivy_wallpaper.jpg"
+    
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 20
+        size_hint_max_y: 300
+        
+        pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+
+
+        CustomImageCarousel:
+            size_hint: (0.5, 0.5)  
+            size: (400, 300)
+        
+         
+            
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 20
+        padding: 10
+        size_hint_max_y: 300
+        size_hint_max_x: 500    
+        pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+
+    
+
+        
+
+        MDRaisedButton:
+            style: "filled"
+            text: "Go back"
+            font_style: "H6"
+            font_name: "font/zh-cn.ttf"
+            md_bg_color: app.get_hex_color("#FFBD00A6")
+            size_hint: (0.1, 0.2)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+
+            on_press: 
+                root.manager.transition = FadeTransition()
+                root.manager.current = 'main-menu'
+
+<CustomImageCarousel>:
+    Carousel:
+        id: image_carousel
+        loop: True  # Set to False if you don't want the carousel to loop
+        
+        
+        
+
+        Image:
+            source: "materials/about1.png"
+            allow_stretch: True
+
+        Image:
+            source: "materials/about2.png"
+            allow_stretch: True
+
+        Image:
+            source: "materials/about3.png"
+            allow_stretch: True
+        
+        Image:
+            source: "materials/about4.png"
+            allow_stretch: True
+
+    Button:
+        text: ''
+        size_hint: (None, None)
+        size: (image_carousel.width / 2, image_carousel.height)
+        pos: image_carousel.pos
+        background_color: 0, 0, 0, 0
+        on_press: image_carousel.load_previous()
+
+    Button:
+        text: ''
+        size_hint: (None, None)
+        size: (image_carousel.width / 2, image_carousel.height)
+        pos: (image_carousel.x + image_carousel.width / 2, image_carousel.y)
+        background_color: 0, 0, 0, 0
+        on_press: image_carousel.load_next()
+
+<PreSession>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "materials\kivy_wallpaper.jpg"
+    
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 20
+        size_hint_max_y: 300
+        
+        pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+
+
+        CustomImageCarousel3:
+            id: image_carousel3
+            size_hint: (0.5, 0.5)  
+            size: (400, 300)
+        
+         
+            
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: 10
+        size_hint_max_y: 300
+        size_hint_max_x: 1200    
+        pos_hint: {'center_x': 0.5, 'center_y': 0.15}
+
+
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_max_y: 300
+            size_hint_max_x: 1200   
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            
+    
+
+            MDCheckbox:
+                id: enable_start_checkbox
+                size_hint: (0.1, 0.1)
+                pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+                on_active: root.enable_start_button(self.active)
+                color_inactive: app.get_hex_color("#FFBD00A6")
+                color_active: app.get_hex_color("#009407")
+            
+            MDLabel:
+                text: "I have read all the Pre Session Guidelines and would like to proceed"
+                theme_text_color: "Custom"
+                text_color: "white"
+                font_style: "H6"
+                halign: 'center'
+                font_name: "font/zh-cn.ttf"
+                size_hint: (1, None)
+                pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+                height: self.texture_size[1]
+                multiline: False
+                font_size: '20sp'
+
+        MDRaisedButton:
+            id: start_button
+            style: "filled"
+            text: "Proceed"
+            font_style: "H6"
+            font_name: "font/zh-cn.ttf"
+            md_bg_color: app.get_hex_color("#FFBD00A6")
+            size_hint: (0.5, 0.2)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+
+            on_press: 
+                root.manager.transition = FadeTransition()
+                root.manager.current = 'session-library'
+
+<CustomImageCarousel3>:
+    Carousel:
+        id: image_carousel3
+        loop: False
+        
+        
+        
+
+        Image:
+            source: "materials/pre1.png"
+            allow_stretch: True
+
+        Image:
+            source: "materials/pre2.png"
+            allow_stretch: True
+
+        Image:
+            source: "materials/pre3.png"
+            allow_stretch: True
+        
+        Image:
+            source: "materials/pre4.png"
+            allow_stretch: True
+
+        Image:
+            source: "materials/pre5.png"
+            allow_stretch: True
+
+    Button:
+        text: ''
+        size_hint: (None, None)
+        size: (image_carousel3.width / 2, image_carousel3.height)
+        pos: image_carousel3.pos
+        background_color: 0, 0, 0, 0
+        on_press: image_carousel3.load_previous()
+
+    Button:
+        text: ''
+        size_hint: (None, None)
+        size: (image_carousel3.width / 2, image_carousel3.height)
+        pos: (image_carousel3.x + image_carousel3.width / 2, image_carousel3.y)
+        background_color: 0, 0, 0, 0
+        on_press: image_carousel3.load_next()
+            
+
+<Instruction>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "materials\kivy_wallpaper.jpg"
+
+    
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: dp(10)
+        padding: 20
+        size_hint_y: 0.9
+        size_hint_x: 1
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: dp(10)
+            padding: 20
+            size_hint_y: 0.9
+            size_hint_x: 0.9
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                padding: 20
+                size_hint_y: 0.7
+                size_hint_x: 0.4
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.6, 0.2, 0.6  # Set the background color (RGBA values)
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                padding: 20
+                size_hint_y: 0.7
+                size_hint_x: 0.4
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.6, 0.2, 0.6  # Set the background color (RGBA values)
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                padding: 20
+                size_hint_y: 0.7
+                size_hint_x: 0.4
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.6, 0.2, 0.6  # Set the background color (RGBA values)
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                padding: 20
+                size_hint_y: 0.7
+                size_hint_x: 0.4
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.6, 0.2, 0.6  # Set the background color (RGBA values)
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                padding: 20
+                size_hint_y: 0.7
+                size_hint_x: 0.4
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.6, 0.2, 0.6  # Set the background color (RGBA values)
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+        
+
+    
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: dp(10)
+        padding: 20
+        size_hint_y: 0.1
+        size_hint_x: 0.8
+        pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+     
+
+        MDRaisedButton:
+            style: "filled"
+            text: "Go back"
+            font_style: "H6"
+            font_name: "app_font"
+            md_bg_color: app.get_hex_color("#3FD1EA99")
+            size_hint: (0.15, 0.01)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.05}
+
+            on_press: 
+                root.manager.transition = FadeTransition()
+                root.manager.current = 'about'
+
+<PostSession>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "materials/kivy_wallpaper.jpg"
+
+    
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: dp(10)
+        padding: 20
+        size_hint_y: 0.5
+        size_hint_x: 0.5
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        MDLabel:
+            id: postsessionmessage
+            text: ""
+            theme_text_color: "Custom"
+            text_color: "white"
+            font_style: "H6"
+            halign: 'center'
+            font_name: "font/zh-cn.ttf"
+            size_hint: (1, None)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+            height: self.texture_size[1]
+            multiline: False
+            font_size: '40sp'
+
+        
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: dp(10)
+            padding: 20
+            size_hint_y: 0.5
+            size_hint_x: 0.5
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+
+            MDRaisedButton:
+                style: "filled"
+                text: "Go back"
+                font_style: "H6"
+                font_name: "font/zh-cn.ttf"
+                md_bg_color: app.get_hex_color("#FFBD00A6")
+                size_hint: (0.05, 0.1)
+                pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+
+                on_press: 
+                    root.manager.transition = FadeTransition()
+                    root.manager.current = 'main-menu'
+
+
+
+
